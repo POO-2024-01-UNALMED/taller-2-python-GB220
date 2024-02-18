@@ -36,22 +36,22 @@ class Auto:
     def __init__(self, modelo, precio, asientos, marca, motor, registro):
         self.modelo = modelo
         self.precio = precio
-        self.asientos = Asiento(asientos())
+        self.asientos = asientos
         self.marca = marca
-        self.motor = Motor(motor)
+        self.motor = motor
         self.registro = registro
 
     def cantidadAsientos(self):
         i = 0
         for j in range(0, len(self.asientos)):
-            if type(self.asientos(j)) == Asiento:
+            if type(self.asientos[j]) == Asiento:
                 i+=1
         return i
     
     def verificarIntegridad(self):
         integridad = "Auto original"
         for i in range (0, len(self.asientos)):
-            if type(self.asientos(i)) == Asiento:
+            if type(self.asientos[i]) == Asiento:
                 if self.asientos[i].registro != self.registro or self.asientos[i].registro != self.motor.registro:
                     integridad = "Las piezas no son originales"
         return integridad
